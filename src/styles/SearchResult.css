@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+.section-result {
+  @apply w-full;
+}
+
+.result-inner-container {
+  @apply max-w-[1240px] mx-auto  flex flex-row gap-4 justify-between py-8;
+}
+
+.data-result-section {
+  @apply w-1/2 border-1;
+}
+
+.map-section {
+  @apply w-1/2 border-1;
+}

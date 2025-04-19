@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+.header-container {
+  @apply w-full bg-gradient-to-r from-blue-800 via-blue-800 to-gray-700;
+}
+
+.header-section {
+  @apply max-w-[1240px] w-full h-fit  py-2 mx-auto my-0;
+}
+
+.title-app {
+  @apply font-medium text-xl text-blue-200 text-left flex flex-row gap-1;
+}
