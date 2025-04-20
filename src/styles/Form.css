@@ -13,7 +13,7 @@
 }
 
 .title-ip-section {
-  @apply text-5xl text-white font-bold;
+  @apply text-5xl text-white font-bold flex gap-4;
 }
 
 .input-form {

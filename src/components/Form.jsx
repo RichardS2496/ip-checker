@@ -13,39 +13,37 @@ export function Form() {
   const URL_IP_API = import.meta.env.VITE_API_URL;
 
   // Función para hacer la consulta a la API con una IP (o sin ella)
-  const fetchIPData = useCallback(
-    async (ip = "") => {
-      const url = `https://${URL_IP_API}/?${ip ? `ip=${ip}&` : ""}format=json`;
+  const fetchIPData = useCallback(async (ip = "") => {
+    //   const url = `https://${URL_IP_API}/?${ip ? `ip=${ip}&` : ""}format=json`;
 
-      const options = {
-        method: "GET",
-        headers: {
-          "x-rapidapi-key": API_KEY,
-          "x-rapidapi-host": "ip-geo-location4.p.rapidapi.com",
-        },
-      };
+    const url = `https://ipwho.is/${ip}`;
 
-      setLoading(true); // ✅ Primero activamos el loading
-      setSearchResult(null); // ✅ Limpiamos resultados previos
-      setError(null); // ✅ Limpiamos errores previos
+    //   const options = {
+    //     method: "GET",
+    //     headers: {
+    //       "x-rapidapi-key": API_KEY,
+    //       "x-rapidapi-host": "ip-geo-location4.p.rapidapi.com",
+    //     },
+    //   };
 
-      try {
-        const response = await fetch(url, options);
+    setLoading(true);
+    setSearchResult(null);
+    setError(null);
 
-        if (!response.ok) throw new Error("Error al consultar la IP");
+    try {
+      const response = await fetch(url);
 
-        const data = await response.json();
-        setSearchResult(data);
-        console.log("Datos recibidos:", data);
-      } catch (err) {
-        console.error("No se pudo obtener la información de la IP.", err);
-        setError("Hubo un problema al consultar la IP.");
-      } finally {
-        setLoading(false); // ✅ Terminamos el loading
-      }
-    },
-    [API_KEY, URL_IP_API]
-  );
+      if (!response.ok) throw new Error("Error al consultar la IP");
+
+      const data = await response.json();
+      setSearchResult(data);
+      console.log("Datos recibidos:", data);
+    } catch (err) {
+      setError("Hubo un problema al consultar la IP.", err);
+    } finally {
+      setLoading(false);
+    }
+  }, []);
 
   const didFetch = useRef(false);
 
@@ -87,7 +85,10 @@ export function Form() {
       <div className="main-app-container">
         <div className="form-section">
           <h2 className="title-ip-section">
-            <span className="text-sm font-medium">Current IP:</span> {showMyIp}
+            <span className="text-sm font-medium text-white self-end">
+              Current IP:
+            </span>
+            {showMyIp}
           </h2>
 
           <form className="form-container" action="">

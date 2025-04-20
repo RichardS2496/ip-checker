@@ -5,13 +5,28 @@
 }
 
 .result-inner-container {
-  @apply max-w-[1240px] mx-auto  flex flex-row gap-4 justify-between py-8;
+  @apply max-w-[1240px] mx-auto flex flex-row gap-16 justify-between py-16;
 }
 
 .data-result-section {
-  @apply w-1/2 border-1;
+  @apply w-1/2 rounded-xl   text-start;
 }
 
+.right-result-section {
+  @apply w-1/2 flex flex-col gap-8;
+}
 .map-section {
-  @apply w-1/2 border-1;
+  @apply w-full rounded-xl overflow-hidden;
+}
+
+.map-iframe {
+  @apply w-full rounded-xl;
+}
+
+.timezone-section {
+  @apply flex flex-col gap-2 text-start;
+}
+
+.title-standard {
+  @apply text-2xl font-semibold text-blue-900;
 }
