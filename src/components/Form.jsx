@@ -84,12 +84,13 @@ export function Form() {
     <div>
       <div className="main-app-container">
         <div className="form-section">
-          <h2 className="title-ip-section">
-            <span className="text-sm font-medium text-white self-end">
-              Current IP:
-            </span>
-            {showMyIp}
-          </h2>
+          <span className="text-sm font-medium text-white">
+            Your current IP
+          </span>
+          <h2 className="title-ip-section">{showMyIp}</h2>
+          <h3 className="text-white text-2xl font-medium">
+            {searchResult.city} / {searchResult.country}
+          </h3>
 
           <form className="form-container" action="">
             <input
