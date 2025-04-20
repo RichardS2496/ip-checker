@@ -88,9 +88,11 @@ export function Form() {
             Your current IP
           </span>
           <h2 className="title-ip-section">{showMyIp}</h2>
-          <h3 className="text-white text-2xl font-medium">
-            {searchResult.city} / {searchResult.country}
-          </h3>
+          {searchResult && (
+            <h3 className="text-white text-2xl font-medium">
+              {searchResult.city} / {searchResult.country}
+            </h3>
+          )}
 
           <form className="form-container" action="">
             <input
